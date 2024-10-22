@@ -71,6 +71,7 @@ public final class ProfileViewController: UIViewController {
             .eraseToAnyPublisher()
 
         let nextButtonPublisher = nextButton.publisher(for: .touchUpInside)
+            .throttle(for: .seconds(2), scheduler: RunLoop.main, latest: false)
             .eraseToAnyPublisher()
 
         let input = ProfileViewModel.Input(
